@@ -4,16 +4,18 @@
  * Final Project - Space Fighter
  * May 23, 2014
  */
-package pearce_jonathan_finalproject;
+package main;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-public class Pearce_Jonathan_FinalProject {
+public class Main {
 
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
         // To create and setup our JFrame
         JFrame myFrame = new JFrame();
         myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

@@ -4,7 +4,7 @@
  * Final Project - Space Fighter
  * May 23, 2014
  */
-package pearce_jonathan_finalproject;
+package main;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -16,11 +16,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-import java.util.ArrayList;
 
 public class GamePanel extends JPanel implements MouseMotionListener, MouseListener, KeyListener {
 
@@ -59,35 +60,35 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
     //all images are drawn to offScreenG but not displayed, then offScreenG is displayed itself
     BufferedImage imgOffScreen = new BufferedImage(800, 800, BufferedImage.TYPE_INT_RGB);
     Graphics2D offScreenG = (Graphics2D) imgOffScreen.getGraphics();
-
-    GamePanel() throws IOException { //will stop/crash program in case background example cannot be found
+    String urlBase = "/Users/jaypearce9/Desktop/Math and Computer Science/Summer Projects/VerticalScrollingGame/src/pictures/";
+    
+    GamePanel() throws IOException, URISyntaxException { //will stop/crash program in case background example cannot be found
 
         //Creates Bullet for every bullet in the array and allows user's bullets to access Bullet class
         for (int i = 0; i < 30; i++) {
             myBullets[i] = new Bullet();
         }
-
-        //Load images from PNG files to imgURL
-        URL imgURL = getClass().getResource("Pictures/Background2.png");
-        imgBackground = ImageIO.read(imgURL);
-        imgURL = getClass().getResource("Pictures/Ship_2_1.png");
-        imgMainCharacter = ImageIO.read(imgURL);
-        imgURL = getClass().getResource("Pictures/Ball_3.png");
-        imgBullet = ImageIO.read(imgURL);
-        imgURL = getClass().getResource("Pictures/Enemy_Ball.png");
-        imgEnemyBullet = ImageIO.read(imgURL);
-        imgURL = getClass().getResource("Pictures/Enemy_5.png");
-        imgEnemy[0] = ImageIO.read(imgURL);
-        imgURL = getClass().getResource("Pictures/Enemy_2_1.png");
-        imgEnemy[1] = ImageIO.read(imgURL);
-        imgURL = getClass().getResource("Pictures/Enemy_7.png");
-        imgEnemy[2] = ImageIO.read(imgURL);
-        imgURL = getClass().getResource("Pictures/Title_Screen.png");
-        imgMenu = ImageIO.read(imgURL);
-        imgURL = getClass().getResource("Pictures/gameOver.png");
-        imgGameOver = ImageIO.read(imgURL);
-        imgURL = getClass().getResource("Pictures/game_Won.png");
-        imgGameWon = ImageIO.read(imgURL);
+        
+        File sourceImage = new File(urlBase + "background2.png");
+        imgBackground = ImageIO.read(sourceImage);
+		sourceImage = new File(urlBase + "Ship_2_1.png");
+		imgMainCharacter = ImageIO.read(sourceImage);
+		sourceImage = new File(urlBase + "Ball_3.png");
+		imgBullet = ImageIO.read(sourceImage);
+		sourceImage = new File(urlBase + "Enemy_Ball.png");
+		imgEnemyBullet = ImageIO.read(sourceImage);
+		sourceImage = new File(urlBase + "Enemy_5.png");
+		imgEnemy[0] = ImageIO.read(sourceImage);
+		sourceImage = new File(urlBase + "Enemy_2_1.png");
+        imgEnemy[1] = ImageIO.read(sourceImage);
+		sourceImage = new File(urlBase + "Enemy_7.png");
+		imgEnemy[2] = ImageIO.read(sourceImage);
+		sourceImage = new File(urlBase + "Title_Screen.png");
+		imgMenu = ImageIO.read(sourceImage);
+		sourceImage = new File(urlBase + "gameOver.png");
+		imgGameOver = ImageIO.read(sourceImage);
+		sourceImage = new File(urlBase + "game_Won.png");
+        imgGameWon = ImageIO.read(sourceImage);
 
         //Enable all listeners
         addMouseMotionListener(this);

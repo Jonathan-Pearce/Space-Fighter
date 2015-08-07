@@ -4,7 +4,7 @@
  * Final Project - Space Fighter
  * May 23, 2014
  */
-package pearce_jonathan_finalproject;
+package main;
 
 
 public class Ship {
